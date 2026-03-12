@@ -43,7 +43,7 @@ export async function GET() {
   // 3. Fetch all leave requests with faculty profiles
   const { data, error } = await admin
     .from('leave_requests')
-    .select('*, profiles(*)')
+    .select('*, profiles!faculty_id(*)')
     .order('created_at', { ascending: false })
 
   if (error) {
